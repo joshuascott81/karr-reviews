@@ -1,11 +1,291 @@
+.bgc {
+  background-color: coral;
+  /* width: 100%; */
+  /*
+  height: 100%; */
+}
+
+.bgb {
+  background-color: blue;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-90 {
+  opacity: 0.8;
+}
+
+.shadow-bottom {
+  box-shadow: 0 1px 1px 0px gray;
+}
+
+.br-0 {
+  border-radius: 0px;
+}
+
+body {
+  background-color: #fafaf2;
+}
+
+img {
+  /* width: 100%; */
+}
+
+.bgc-lg {
+  background-color: #f2f2f2;
+}
+
+.bgc-g {
+  background-color: #cecab4;
+}
+
+.bgc-dg {
+  background-color: #99947a;
+}
+
+.tc-w {
+  color: white;
+}
+
+#ck-header {
+  width: 100%; /*make image streatch*/
+  overflow: hidden; /*hide bounds of image */
+}
+
+#ck-header img {
+  margin: -20% 0 -60% 0;
+  width: 100%; /*container-width*/
+}
+
+#ck-navbar {
+}
+
+#ck-frame {
+  position: relative;
+  background-color: #fff;
+}
+
+#ck-frame-matte {
+  background-color: white;
+}
+
+#ck-featured-review-poster {
+  width: 100%;
+  overflow: hidden;
+}
+
+.wall-text-md {
+  font-size: 0.8rem;
+}
+
+.wall-text-sm {
+  font-size: 0.6rem;
+}
+
+#ck-review-wall a {
+  color: black;
+  text-decoration: none;
+}
+
+#ck-review-wall div:hover {
+  /* color: pink; */
+  opacity: 0.9;
+}
+
+#ck-recent-reviews-list {
+}
+
+#ck-recent-reviews-list-item li {
+  background-color: #fafafa;
+}
+
+#ck-recent-reviews-list-item li:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+#server-life-widget {
+  border-radius: 0px;
+}
+
+#server-life-widget a {
+  text-decoration: none;
+  color: black;
+}
+
+#server-life-widget a:hover {
+  color: rgb(0, 173, 239);
+}
+
+#search-bar:hover {
+  cursor: pointer;
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* padding-top: 25px; */
+  height: 0;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#ck-featured-text {
+}
+
+/*
+#ck-navbar li:hover {
+}
+
+
+
+.container {
+    margin: auto;
+    padding: 0;
+}
+
+.row {
+    display: flex; 
+    flex-wrap: wrap;
+}
+
 .thumbnail img {
     width: 100%;
 }
 
-.thumbnail {
-    padding: 0;
+.thumbnail {}
 }
 
 .delete-form {
     display: inline;
 }
+
+#ck-website {
+    width: 80%;
+    margin: auto;
+}
+
+
+
+#ck-body-frame {
+    background-color: #ff;
+    margin: auto;
+    padding: 0;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2);
+}
+
+#ck-body-frame-bottom {
+    width: 100%;
+    margin: auto;
+    padding: 10px 10px;
+}
+
+#ck-body-matte {
+    background-color: white;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2);
+}
+
+#ck-body-row {
+    width: 100%; 
+    margin: auto;
+    padding: 0;
+    background-color: blue;
+}
+
+#ck-featured-row {
+    margin: 0;
+    padding: 0;
+    background-color: red;
+    opacity: .5;
+}
+
+#ck-body-featured-review {
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2);
+    background-color: orange;
+    opacity: .5;
+}
+
+#ck-body-featured-review-container {
+    background-color: purple;
+    margin: 0;
+    padding: 0;
+}
+
+#ck-body-featured-review-poster {
+    /* width: 100%;
+}
+
+#ck-body-featured-review-reviewText {
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+}
+
+#ck-body-recent-reviews-list {
+    border-radius: 0;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2);
+    background-color: yellow;
+    opacity: .5;
+}
+
+#ck-body-recent-reviews-list ul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    background-color: #333;
+}
+
+#ck-body-recent-reviews-list-item li {
+    color: white;
+    text-align: left;
+    margin: 10px;
+    padding: 0;
+    text-decoration: none;
+}
+
+#wall {
+    /* margin: 10px;
+}
+
+#wall li {
+    margin: auto;
+}
+
+
+#ck-navbar {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    opacity: .5;
+}
+
+#ck-navbar li {
+    float: left;
+}
+
+#ck-navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#ck-navbar li a:hover {
+    background-color: #111;
+} */

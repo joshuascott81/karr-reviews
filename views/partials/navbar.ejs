@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-2 shadow-sm" id='ck-navbar'>
+    <ul class="navbar-nav mr-auto">
+        <li class="navbar-item">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="navbar-item">
+            <a class="nav-link" href="/reviews">Reviews</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <% if (!currentUser) { %>
+            <li class="navbar-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="navbar-item">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+            <% } else { %>
+                <li class="navbar-item">
+                    <a class="nav-link">Signed In As:
+                        <%= currentUser.username %>
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <% } %>
+    </ul>
+</nav>
