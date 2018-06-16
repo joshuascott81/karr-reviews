@@ -1,67 +1,52 @@
 <% include partials/header %>
 
+    <div class="p-2 shadow" id="ck-frame">
+        <div class="p-2 pl-4 pr-4 shadow-sm" id="ck-frame-matte">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <h4 class="ml-4 text-dark">Recent Review</h4>
 
-    <% include partials/warning %>
-
-        <div class="p-2 shadow" id="ck-frame">
-            <div class="p-2 pl-4 pr-4 shadow-sm" id="ck-frame-matte">
-                <div class="row">
-                    <div class="col-lg-8 col-md-12">
-                        <h4 class="ml-4 text-dark">Recent Review</h4>
-
-                        <div class="" id="ck-featured-text"></div>
+                    <div class="" id="ck-featured-text"></div>
 
 
+                    <% include partials/sortbar %>
 
-                        <!-- <img class="w-20 float-left mr-4" src="/images/poster.jpg"> The anything goes, crackpot commitment of the cast in this hasty revision of a French farce
-                            keeps the comedy ball bouncing. It’s one of the more endearing and funny dumb comedies in recent
-                            memory. I say “dumb comedy” because all the jokes are so stupid you laugh and slap yourself in
-                            the forehead simultaneously. Steve Carell has this unique ability to disarmingly shift tones,
-                            voices, behavioral patterns, and genres within a single scene. It’s the kind of exceptionally
-                            wacko performance Jerry Lewis would be jealous of. Actually, I’m not sure if Lewis ever took
-                            a character as far as Carell does here, nor did he find a screenplay or scenario so perfectly
-                            suited for old-fashioned, burlesque buffoonery. Carell’s Barry is a cartoon Christ — innocently
-                            creating anarchy out of nothing, literally turning the other cheek...
-                        </div> -->
+                        <div id="movieWall" title="8"></div>
+                        <div id="wallDynamic"></div>
 
-                        <% include partials/sortbar %>
+                </div>
 
+                <div class="col-lg-4 col-md-0">
 
-                            <div id="wallDynamic"></div>
+                    <ul class="list-group list-group-flush shadow mb-4" id="ck-recent-reviews-list">
+                        <div id="ck-recent-reviews-list-item"></div>
+                    </ul>
 
-                    </div>
-
-                    <div class="col-lg-4 col-md-0">
-
-                        <ul class="list-group list-group-flush shadow mb-4" id="ck-recent-reviews-list">
-                            <div id="ck-recent-reviews-list-item"></div>
-                        </ul>
-
-                        <div class="card shadow rounded-bottom mb-3" id="server-life-widget">
-                            <div class="videoWrapper">
-                                <iframe class="" id="" src="https://player.vimeo.com/video/194506445" frameborder="0" webkitallowfullscreen mozallowfullscreen
-                                    allowfullscreen></iframe>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="font-weight-bold">
-                                    <a href="https://vimeo.com/194506445">SERVER LIFE - Friday - &quot;Full Moon&quot;</a>
-                                </h6>
-                                <h6>
-                                    Created by Alex Ayala & Chris Karr
-                                </h6>
-                            </div>
-
+                    <div class="card shadow rounded-bottom mb-3" id="server-life-widget">
+                        <div class="videoWrapper">
+                            <iframe class="" id="" src="https://player.vimeo.com/video/194506445" frameborder="0" webkitallowfullscreen mozallowfullscreen
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="font-weight-bold">
+                                <a href="https://vimeo.com/194506445">SERVER LIFE - Friday - &quot;Full Moon&quot;</a>
+                            </h6>
+                            <h6>
+                                Created by Alex Ayala & Chris Karr
+                            </h6>
                         </div>
 
                     </div>
 
                 </div>
+
             </div>
         </div>
+    </div>
 
-        <% include partials/footer %>
+    <% include partials/footer %>
 
-            <!-- 
+        <!-- 
 
 
         

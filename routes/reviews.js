@@ -17,12 +17,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/new', middleware.isLoggedIn, (req, res) => {
-  res.render('reviews/new');
+  var imdbID = { imdbID: 'Please look up IMDB ID' };
+
+  res.render('reviews/new', { movie: imdbID });
 });
 
 // OMDB API
 let key = '6d82971b';
 let omdb = 'http://www.omdbapi.com/?apikey=' + key + '&i=';
+let searchOmdb = 'http://www.omdbapi.com/?apikey=' + key + '&s=';
 
 // CREATE - add new review to DB
 router.post('/', middleware.isLoggedIn, (req, res) => {
@@ -68,30 +71,67 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
       }
     });
   };
-
-  //   $.ajax({
-  //     type: 'GET',
-  //     url: omdb + movieID,
-  //     success: function(data) {
-  //       fName(data, i);
-  //     },
-  //     data: null
-  //   });
-
-  //   let omdbInfo = {};
-
-  //   function server() {
-  //     xmlhttp = new XMLHttpRequest();
-  //     xmlhttp.open('GET', omdb + req.body.imdbID, true);
-  //     xmlhttp.onreadystatechange = function() {
-  //       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-  //         console.log(xmlhttp.responseText);
-  //         omdbInfo = xmlhttp.responseText;
-  //       }
-  //     };
-  //     xmlhttp.send();
-  //   }
 });
+
+// Search for IMDB ID and return ID to form
+router.post('/searchImdbId', (req, res) => {
+  var searchTitle = req.body.title;
+
+  ajaxRequest(
+    {
+      url: searchOmdb + searchTitle,
+      method: 'GET',
+      data: null
+    },
+    function(err, res, searchResults) {
+      if (err) {
+        console.log(err);
+      } else {
+        refresh(searchResults);
+      }
+    }
+  );
+
+  var refresh = searchResults => {
+    if (JSON.parse(searchResults).Search) {
+      var searchSend = JSON.parse(searchResults).Search;
+    } else {
+      var searchSend = [];
+    }
+
+    res.render('reviews/searchImdbId', {
+      searchResults: searchSend
+    });
+  };
+});
+
+router.post('/searchImdbId/return', (req, res) => {
+  // console.log(req.body.movie);
+  res.render('reviews/new', { movie: JSON.parse(req.body.movie) });
+});
+// ajaxRequest(
+//   {
+//     url: searchOmdb + req.body.imdbId,
+//     method: 'GET',
+//     data: null
+//   },
+//   function(err, res, movieID) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       // console.log(body);
+//       rerenderForm(movieID);
+//     }
+//   }
+// );
+
+// var rerenderForm = movieID => {
+//   // console.log(searchResults);
+//   res.redirect('/new', {
+//     movieID: movieID
+//   });
+// };
+// });
 
 // SHOW - show more info about one review
 router.get('/:id', (req, res) => {

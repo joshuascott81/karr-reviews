@@ -1,14 +1,19 @@
 <% include ../partials/header %>
 
-    <% include ../partials/sortbar %>
 
-        <div id="wallDynamic"></div>
+    <div class="p-2 shadow" id="ck-frame">
+        <div class="p-2 pl-4 pr-4 shadow-sm" id="ck-frame-matte">
 
-        <div class="row text-left" style="display:flex; flex-wrap: wrap;">
+            <% include ../partials/sortbar %>
 
-            <% include ../partials/footer %>
+                <div id="wallDynamic"></div>
+        </div>
+    </div>
+    <div class="row text-left" style="display:flex; flex-wrap: wrap;">
 
-                <!-- <% reviews.forEach(function (review) { %>
+        <% include ../partials/footer %>
+
+            <!-- <% reviews.forEach(function (review) { %>
             <div class="col-md-3 col-sm-3">
                 <div class="thumbnail">
                     <img src="<%= JSON.parse(review.omdbInfo).Poster %>">

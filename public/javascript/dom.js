@@ -1,17 +1,4 @@
-// var getOmdbDetails = (movieID, i, fName) => {
-//   let key = '6d82971b';
-//   let omdb = 'http://www.omdbapi.com/?apikey=' + key + '&i=';
-
-//   $.ajax({
-//     type: 'GET',
-//     url: omdb + movieID,
-//     success: function(data) {
-//       fName(data, i);
-//     },
-//     data: null
-//   });
-// };
-
+// Query the database for Reviews
 var getReview = (option, limit, fName) => {
   $.ajax({
     type: 'GET',
@@ -62,19 +49,7 @@ var buildWall = reviews => {
   posterWall += `</div>`;
 
   $('#wallDynamic').html(posterWall);
-
-  // reviews.forEach((review, i) => {
-  //   getOmdbDetails(review.imdbID, i, addOmdbInfo);
-  // });
 };
-
-// <div class="caption">
-//     <h4>${review.title}</h4>
-// </div>
-// <div class="caption" id="poster-year-${i}">
-//     <h4>Year</h4>
-// </div>
-// <p><a href='/reviews/${review._id}' class='btn btn-primary'>Read Review</a></p>
 
 var buildFeatured = review => {
   let featuredHtml = `<div class="p-3 shadow-sm mb-3" id="ck-featured-text">
@@ -109,6 +84,8 @@ $('#sort-az').click(() => getReview('az', 8, buildWall));
 $('#sort-za').click(() => getReview('za', 8, buildWall));
 
 $('#sort-most-recent').click(() => getReview('sort-most-recent', 8, buildWall));
+
+$('#sort-oldest').click(() => getReview('sort-oldest', 8, buildWall));
 
 // Initialize DOM
 $(document).ready(() => {

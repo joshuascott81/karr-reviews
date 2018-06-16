@@ -1,0 +1,68 @@
+<% include ../partials/header %>
+    <div class="p-2 shadow" id="ck-frame">
+        <div class="shadow-sm" id="ck-frame-matte">
+            <div class="row">
+                <div class="col-8 offset-2 row">
+                    <div class="col-8">
+                        <h1>Search for IMDB ID</h1>
+                    </div>
+                    <div class="col-4">
+                        <form action="/reviews/searchImdbId" method="POST">
+
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="title">
+                                <button class="form-control btn btn-dark" type="submit">
+                                    Search
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <ul class="list-group list-group-flush m-0 p-0 shadow" id="search-results-row">
+                <% for (let i = 0; i < searchResults.length; i++) { %>
+                    <li class="list-group-item m-0 p-0">
+                        <div class="row">
+                            <div class="col-1 mb-1">
+                                <img class="m-0 p-0 w-100" src="<%= searchResults[i].Poster %>" alt="">
+                            </div>
+                            <div class="col-11 m-0 p-0 font-weight-bold">
+                                <div id="search-results-text">
+                                    <%= searchResults[i].Title %> -
+                                        <%= searchResults[i].Year %>
+                                            <form class="float-right mr-5" action="/reviews/searchImdbId/return" method="POST">
+                                                <input type="hidden" name="movie" value="<%= JSON.stringify(searchResults[i]) %>">
+                                                <button class="btn btn-dark btn-sm" type="submit">Review This Movie</button>
+                                            </form>
+                                            <!-- <a class="float-right mr-5" href="/reviews/new">
+                                                        <button class="btn btn-dark btn-sm">Review This Movie</button>
+                                                    </a> -->
+                                            <!-- <table>
+                                                        <tr>
+                                                            <td class="align-middle">
+                    
+                                                            </td>
+                                                        </tr>
+                                                    </table> -->
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </li>
+
+                    <% } %>
+            </ul>
+
+
+        </div>
+    </div>
+
+    <% include ../partials/footer %>

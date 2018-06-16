@@ -13,7 +13,7 @@ const bodyParser = require('body-parser'),
 var commentRoutes = require('./routes/comments'),
   reviewRoutes = require('./routes/reviews'),
   indexRoutes = require('./routes/index'),
-  wallRoutes = require('./routes/wall');
+  domRoutes = require('./routes/dom');
 
 const app = express();
 
@@ -59,7 +59,7 @@ app.use((req, res, next) => {
 app.use(indexRoutes);
 app.use('/reviews/:id/comments', commentRoutes);
 app.use('/reviews', reviewRoutes);
-app.use('/wall', wallRoutes);
+app.use('/dom', domRoutes);
 
 var querystring = require('querystring');
 
@@ -70,12 +70,20 @@ app.get('/getReview', (req, res) => {
   );
   var reviewsArray = [];
   var reviewFind = {};
+  var reviewOrder = 1;
+
+  if (query == 'sort-oldest') {
+    reviewOrder = 1;
+  } else {
+    reviewOrder = -1;
+  }
 
   // if (query == 'featured-review') {
   //     reviewFind = {date: 1};
   // };
 
   Review.find(reviewFind)
+    .sort({ date: reviewOrder })
     .limit(queryLimit)
     .exec((err, reviews) => {
       if (err) {
@@ -119,9 +127,6 @@ app.get('/getReview', (req, res) => {
             return 0;
           });
           reviews = reviewsArray;
-        } else if (query == 'sort-most-recent') {
-          // console.log(reviews);
-          reviews.sort({ date: 'desc' });
         } else if (query == 'featured-review') {
           reviews = reviews[0];
         }

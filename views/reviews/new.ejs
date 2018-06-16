@@ -2,29 +2,56 @@
     <div class="p-2 shadow" id="ck-frame">
         <div class="p-2 pl-4 pr-4 shadow-sm" id="ck-frame-matte">
             <div class="row">
-                <div class="col-lg-2">
 
-                </div>
-                <div class="col-lg-8 shadow mb-3 mt-3">
-                    <h1>Write a new review</h1>
-                    <form class="" action="/reviews" method="post">
-                        <div class="form-group">
-                            <label for="imdbID">Imdb ID</label>
-                            <input class="form-control" id="imdbName" name="imdbID" type="text" placeholder="paste imdbID here">
+                <h1 class="col-8 offset-2">Write a new review</h1>
+
+                <div class="col-8 offset-2 shadow mb-3 mt-3 pt-3 bg-light">
+                    <div class="row">
+                        <!-- <div class="col-12"> -->
+                        <% if (movie.imdbID == 'Please look up IMDB ID') { %>
+                            <div class="col-12 text-right">
+                                <form action="/reviews/searchImdbId" class="" method="POST">
+                                    <input class="form-control" type="hidden" name="title" value="">
+                                    <button class="btn btn-dark">
+                                        Find IMDB ID
+                                    </button>
+                                </form>
+                            </div>
+
+                            <% } else { %>
+                                <div class="col-3 offset-9 text-right position-absolute">
+                                    <img class="w-100" src="<%= movie.Poster %>" alt="">
+
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <% } %>
+
+                    </div>
+
+
+                    <form class="row" action="/reviews" method="post">
+                        <div class="col-4 form-group">
+                            <label class="col-form-label" for="imdbID">Imdb ID</label>
+
+                            <input class="form-control" id="imdbName" name="imdbID" type="text" value="<%= movie.imdbID %>">
                         </div>
-                        <div class="form-group">
-                            <label for="reviewText">Your Review</label>
-                            <textarea class="form-control" id="reviewText" name="reviewText" type="text" placeholder="type review here" rows="3"></textarea>
+                        <div class="col-12 form-group">
+                            <label class="col-form-label" for="reviewText">Your Review</label>
+                            <textarea class="form-control" id="reviewText" name="reviewText" type="text" placeholder="type review here" rows="8"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="rating">Rating</label>
+                        <div class="col-12 form-group">
+                            <label class="col-form-label" for="rating">Rating</label>
                             <input class="form-control" id="rating" name="rating" type="text" placeholder="your rating">
                         </div>
-                        <div class="form-group">
-                            <label for="date">Original Review Date</label>
+                        <div class="col-4 form-group">
+                            <label class="col-form-label" for="date">Original Review Date</label>
                             <input class="form-control" id="date" name="date" type="date" placeholder="original review date">
                         </div>
-                        <div class="form-group">
+                        <div class="col-12 form-group">
                             <button class="btn btn-block btn-primary btn-dark br-0">Submit</button>
                         </div>
                     </form>

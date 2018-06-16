@@ -139,6 +139,20 @@ img {
 #ck-featured-text {
 }
 
+#search-results-row li {
+  background-color: #fafafa;
+}
+
+#search-results-row li:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+#search-results-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /*
 #ck-navbar li:hover {
 }
